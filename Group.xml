@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="suite01">
+<!-- <suite name="suite01" thread-count='5' parallel='tests'> -->
+	
+	<listeners>
+  		<listener class-name="Utilities.ExtentReportManager" />
+  	</listeners>	
+	
+	
+	<test name="test01" preserve-order="true">
+		<parameter name="os" value="Windows 11"></parameter>
+		<parameter name="browser" value="chrome"></parameter>
+		
+		<groups>
+			<run>
+				<include name="sanity"></include>
+				<include name="regeression"></include>
+			</run>
+		</groups>
+		
+		<classes>
+			<class name="TestData.TC_01_ExtractTwoCourses"/>
+			<class name="TestData.TC_02_ExtractLanguageAndLevels"/>
+			<class name="TestData.TC_03_FormValidation"/>
+		</classes>
+	</test>
+	
+	<!-- <test name="test02" preserve-order="true">
+		<parameter name="os" value="Windows 11"></parameter>
+		<parameter name="browser" value="edge"></parameter>
+		
+		<groups>
+			<run>
+				<include name="sanity"></include>
+				
+			</run>
+		</groups>
+		
+		<classes>
+			<class name="TestData.TC_01_ExtractTwoCourses"/>
+			<class name="TestData.TC_02_ExtractLanguageAndLevels"/>
+			<class name="TestData.TC_03_FormValidation"/>	
+		</classes>
+	</test>	-->
+
+</suite>

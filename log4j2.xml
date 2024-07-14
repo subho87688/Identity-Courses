@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Configuration status="WARN"> 
+
+	<Properties>
+			<Property name="basePath">./logs</Property>
+	</Properties>
+
+
+	<Appenders>	<!-- Defines the patteren in which the log info will get generated -->
+ 
+	    <Console name="Console" target="SYSTEM_OUT">		<!-- For the Console generation -->
+	      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+	    </Console>
+    
+    				<!-- For inside the log file generation -->
+	  <RollingFile name="File" fileName="${basePath}/IndentyCourses.log" filePattern="${basePath}/IndentyCourses-%d{yyyy-MM-dd}.log">
+	     <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+	      <SizeBasedTriggeringPolicy size="5000" />
+	   </RollingFile>
+      
+	</Appenders>
+  
+	<Loggers>
+	    <Root level="Info">			<!-- Here you can use multiple log levels All < Trace < Debug < Info < Warn < Error < Fatal < Off -->
+	      <AppenderRef ref="File"/> 		<!-- Defines where the log informations will get generated -->
+	    </Root>
+	</Loggers>
+  
+</Configuration>
